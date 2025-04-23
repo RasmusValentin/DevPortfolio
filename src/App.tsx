@@ -2,7 +2,57 @@ import { BackgroundBeams } from "./components/ui/background-beams";
 import profilePic from "./assets/valle.png";
 import arrowIcon from "./assets/arrow.png";
 
+// Technology logos (place these files in src/assets/logos/)
+import reactLogo from "./assets/logos/React.png";
+import tsLogo from "./assets/logos/TypeScript.png";
+import jsLogo from "./assets/logos/JavaScript.png";
+import tailwindLogo from "./assets/logos/Tailwind CSS.png";
+import htmlLogo from "./assets/logos/HTML5.png";
+import cssLogo from "./assets/logos/CSS3.png";
+import gitLogo from "./assets/logos/Git.png";
+import viteLogo from "./assets/logos/Vite.js.png";
+import nodeLogo from "./assets/logos/Node.js.png";
+import figmaLogo from "./assets/logos/Figma.png";
+import bitbucketLogo from "./assets/logos/bitBucket.png";
+import jiraLogo from "./assets/logos/Jira.png";
+import muiLogo from "./assets/logos/Material UI.png";
+import storybookLogo from "./assets/logos/Storybook.png";
+
 function App() {
+  const skills = [
+    "React",
+    "TypeScript",
+    "JavaScript",
+    "TailwindCSS",
+    "HTML",
+    "CSS",
+    "Git",
+    "Vite",
+    "Node.js",
+    "Figma",
+    "Bitbucket",
+    "Jira",
+    "Material UI",
+    "Storybook",
+  ];
+
+  const skillLogos: Record<string, string> = {
+    React: reactLogo,
+    TypeScript: tsLogo,
+    JavaScript: jsLogo,
+    TailwindCSS: tailwindLogo,
+    HTML: htmlLogo,
+    CSS: cssLogo,
+    Git: gitLogo,
+    Vite: viteLogo,
+    "Node.js": nodeLogo,
+    Figma: figmaLogo,
+    Bitbucket: bitbucketLogo,
+    Jira: jiraLogo,
+    "Material UI": muiLogo,
+    Storybook: storybookLogo,
+  };
+
   return (
     <div className="relative flex flex-col min-h-screen text-white">
       <BackgroundBeams className="fixed inset-0 bg-gradient-to-b from-gray-900 to-gray-800 bg-fixed" />
@@ -51,7 +101,7 @@ function App() {
                     bg-white/3 border border-white/20 dark:border-gray-500/20
                     backdrop-blur-[4px] shadow-lg overflow-hidden
                     transform transition-all ease-in-out duration-300
-                    hover:scale-102 hover:border-white/30 dark:hover:border-gray-300/30
+                   hover:border-white/30 dark:hover:border-gray-300/30
                   "
                   >
                     <img
@@ -118,24 +168,18 @@ function App() {
               <p className="text-gray-300 mb-6">
                 Here are some of the technologies and tools I work with:
               </p>
-              <div className="flex flex-wrap gap-3">
-                {[
-                  "React",
-                  "TypeScript",
-                  "JavaScript",
-                  "TailwindCSS",
-                  "HTML",
-                  "CSS",
-                  "Git",
-                  "Vite",
-                  "Node.js",
-                  "Figma",
-                ].map((skill) => (
+              <div className="flex flex-wrap justify-evenly gap-3">
+                {skills.map((skill) => (
                   <div
                     key={skill}
                     className="relative group rainbow-ring rounded-full"
                   >
-                    <span className="relative z-10 block bg-gray-800 text-sm text-white px-4 py-2 rounded-full transition-all duration-300 group-hover:bg-gray-700">
+                    <span className="relative z-10 flex items-center bg-gray-800 text-sm text-white px-4 py-2 rounded-full gap-2 transition-all duration-300 group-hover:bg-gray-700">
+                      <img
+                        src={skillLogos[skill]}
+                        alt={`${skill} logo`}
+                        className="w-4 h-4"
+                      />
                       {skill}
                     </span>
                   </div>
