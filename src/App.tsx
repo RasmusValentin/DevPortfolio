@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { BackgroundBeams } from './components/ui/background-beams';
 import profilePic from './assets/valle.png';
 import arrowIcon from './assets/arrow.png';
-import { XMarkIcon } from '@heroicons/react/24/solid';
+import { ChevronDownIcon, XMarkIcon } from '@heroicons/react/24/solid';
 
 import reactLogo from './assets/logos/React.png';
 import tsLogo from './assets/logos/TypeScript.png';
@@ -21,6 +21,18 @@ import storybookLogo from './assets/logos/Storybook.png';
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [skillsCollapsed, setSkillsCollapsed] = useState(false);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [maxHeight, setMaxHeight] = useState<string>('0px');
+
+  // Update maxHeight when collapsed state changes
+  useEffect(() => {
+    if (contentRef.current) {
+      setMaxHeight(
+        skillsCollapsed ? '0px' : `${contentRef.current.scrollHeight}px`,
+      );
+    }
+  }, [skillsCollapsed]);
 
   // Disable page scroll and preserve layout on modal open
   useEffect(() => {
@@ -202,27 +214,49 @@ function App() {
           {/* Skills and Projects */}
           <div className='flex flex-col items-center gap-8'>
             {/* Skills Card */}
-            <div className='hover:border-wave-white/30 w-full max-w-4xl transform rounded-3xl border border-white/20 bg-white/10 p-12 text-left shadow-lg backdrop-blur-[4px] transition-all duration-300 ease-in-out hover:scale-102 dark:border-gray-500/20 dark:bg-gray-800/30 dark:hover:border-gray-300/30'>
-              <h3 className='mb-4 text-2xl font-semibold text-white'>Skills</h3>
-              <p className='mb-6 text-gray-300'>
-                Here are some of the technologies and tools I work with:
-              </p>
-              <div className='flex flex-wrap justify-evenly gap-3'>
-                {skills.map((skill) => (
-                  <div
-                    key={skill}
-                    className='group rainbow-ring relative rounded-full'
-                  >
-                    <span className='relative z-10 flex items-center gap-2 rounded-full bg-gray-800 px-4 py-2 text-sm text-white transition-all duration-300 group-hover:bg-gray-700'>
-                      <img
-                        src={skillLogos[skill]}
-                        alt={`${skill} logo`}
-                        className='h-4 w-4'
-                      />
-                      {skill}
-                    </span>
-                  </div>
-                ))}
+            <div className='w-full max-w-4xl transform rounded-3xl border border-white/20 bg-white/10 p-12 text-left shadow-lg backdrop-blur-[4px] transition-all duration-300 ease-in-out hover:scale-102 hover:border-white/30 dark:border-gray-500/20 dark:bg-gray-800/30 dark:hover:border-gray-300/30'>
+              <div className='flex items-center justify-between'>
+                <h3 className='text-2xl font-semibold text-white'>Skills</h3>
+                <button
+                  onClick={() => setSkillsCollapsed((prev) => !prev)}
+                  aria-label={
+                    skillsCollapsed ? 'Expand skills' : 'Collapse skills'
+                  }
+                  className='cursor-pointer rounded-full border border-white/10 bg-transparent px-2 py-2 text-sm text-white transition-all duration-300 hover:border-white/30 hover:bg-gray-700'
+                >
+                  <ChevronDownIcon
+                    className={`h-5 w-5 transform text-white transition-transform duration-500 ${
+                      skillsCollapsed ? '' : 'rotate-180'
+                    }`}
+                  />
+                </button>
+              </div>
+
+              <div
+                ref={contentRef}
+                className='overflow-hidden pb-1 transition-all duration-500 ease-in-out'
+                style={{ maxHeight }}
+              >
+                <p className='pt-2 text-gray-300'>
+                  Here are some of the technologies and tools I work with:
+                </p>
+                <div className='mt-4 flex flex-wrap justify-evenly gap-3'>
+                  {skills.map((skill) => (
+                    <div
+                      key={skill}
+                      className='group rainbow-ring relative rounded-full'
+                    >
+                      <span className='relative z-10 flex items-center gap-2 rounded-full bg-gray-800 px-4 py-2 text-sm text-white transition-all duration-300 group-hover:bg-gray-700'>
+                        <img
+                          src={skillLogos[skill]}
+                          alt={`${skill} logo`}
+                          className='h-4 w-4'
+                        />
+                        {skill}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
