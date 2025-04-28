@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { BackgroundBeams } from './components/ui/background-beams';
 import profilePic from './assets/valle.png';
 import arrowIcon from './assets/arrow.png';
+import { XMarkIcon } from '@heroicons/react/24/solid';
 
 import reactLogo from './assets/logos/React.png';
 import tsLogo from './assets/logos/TypeScript.png';
@@ -89,16 +90,16 @@ function App() {
         onClick={() => setIsModalOpen(false)}
       >
         <div
-          className={`relative w-full max-w-md transform rounded-3xl border border-white/20 bg-white/10 p-8 shadow-lg backdrop-blur-[4px] transition-all duration-300 ease-in-out hover:border-white/50 dark:border-gray-500/20 dark:bg-gray-800/30 dark:hover:border-gray-300/30 ${
+          className={`relative w-full max-w-md transform rounded-3xl border border-white/20 bg-white/10 p-8 shadow-lg backdrop-blur-[24px] transition-all duration-300 ease-in-out hover:border-white/50 dark:border-gray-500/20 dark:bg-gray-800/30 dark:hover:border-gray-300/30 ${
             isModalOpen ? 'scale-100 opacity-100' : 'scale-75 opacity-0'
           }`}
           onClick={(e) => e.stopPropagation()}
         >
           <button
             onClick={() => setIsModalOpen(false)}
-            className='absolute top-4 right-4 cursor-pointer text-2xl text-gray-500 hover:text-gray-400'
+            className='group absolute top-4 right-5 cursor-pointer'
           >
-            &times;
+            <XMarkIcon className='rotate-on-hover h-6 w-6 text-gray-500 group-hover:text-gray-400' />
           </button>
           <h4 className='mb-4 text-xl font-semibold text-gray-900 dark:text-white'>
             Contact Me
@@ -194,7 +195,7 @@ function App() {
             </h3>
             <p className='mx-auto max-w-2xl text-gray-300'>
               Please have a look at the following sections to learn more about
-              my skills and experience!
+              my skills and experience:
             </p>
           </div>
 
@@ -250,7 +251,8 @@ function App() {
       {/* Footer */}
       <footer className='z-10 bg-gray-950'>
         <div className='mx-auto w-full max-w-[1440px] px-4 py-4 text-center text-sm text-gray-400'>
-          © {new Date().getFullYear()} Rasmus Valentin. Powered by Coffee ☕.
+          © {new Date().getFullYear()} Rasmus Valentin Jacobsen. Powered by
+          Coffee ☕.
         </div>
       </footer>
     </div>
