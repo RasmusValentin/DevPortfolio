@@ -125,7 +125,7 @@ function App() {
 
           {/* Modal */}
           {isModalOpen && (
-            <div className='bg-opacity-50 fixed inset-0 z-50 flex items-center justify-center bg-black'>
+            <div className='fixed inset-0 z-50 flex items-center justify-center'>
               <div className='relative flex w-full max-w-md flex-col gap-4 rounded-2xl bg-white p-8 md:flex-row dark:bg-gray-800'>
                 <button
                   onClick={() => setIsModalOpen(false)}
