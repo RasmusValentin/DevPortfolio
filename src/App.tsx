@@ -24,6 +24,9 @@ function App() {
   const [skillsCollapsed, setSkillsCollapsed] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
   const [maxHeight, setMaxHeight] = useState<string>('0px');
+  const [projectsCollapsed, setProjectsCollapsed] = useState(false);
+  const projectsRef = useRef<HTMLDivElement>(null);
+  const [projectsMaxHeight, setProjectsMaxHeight] = useState('0px');
 
   // Update maxHeight when collapsed state changes
   useEffect(() => {
@@ -33,6 +36,14 @@ function App() {
       );
     }
   }, [skillsCollapsed]);
+
+  useEffect(() => {
+    if (projectsRef.current) {
+      setProjectsMaxHeight(
+        projectsCollapsed ? '0px' : `${projectsRef.current.scrollHeight}px`,
+      );
+    }
+  }, [projectsCollapsed]);
 
   // Disable page scroll and preserve layout on modal open
   useEffect(() => {
@@ -260,23 +271,144 @@ function App() {
               </div>
             </div>
 
-            {/* Placeholder Projects */}
-            <div className='hover:border-wave-white/30 w-full max-w-4xl transform rounded-3xl border border-white/20 bg-white/10 p-12 text-left shadow-lg backdrop-blur-[4px] transition-all duration-300 ease-in-out hover:scale-102 dark:border-gray-500/20 dark:bg-gray-800/30 dark:hover:border-gray-300/30'>
-              <h3 className='mb-4 text-2xl font-semibold'>
-                Projects & Experience
-              </h3>
-              <p className='text-gray-300'>
-                Relevant university projects and work experience I have gained
-                throughout my time as a medialogy student:
-              </p>
-            </div>
-            <div className='hover:border-wave-white/30 w-full max-w-4xl transform rounded-3xl border border-white/20 bg-white/10 p-12 text-left shadow-lg backdrop-blur-[4px] transition-all duration-300 ease-in-out hover:scale-102 dark:border-gray-500/20 dark:bg-gray-800/30 dark:hover:border-gray-300/30'>
-              <h3 className='mb-4 text-2xl font-semibold'>Placeholder 3</h3>
-              <p className='text-gray-300'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in
-                condimentum velit, et egestas nulla. Integer porta erat sed
-                dolor vestibulum venenatis.
-              </p>
+            {/* Projects & Experience Card */}
+            <div className='w-full max-w-4xl transform rounded-3xl border border-white/20 bg-white/10 p-12 text-left shadow-lg backdrop-blur-[4px] transition-all duration-300 ease-in-out hover:scale-102 hover:border-white/30 dark:border-gray-500/20 dark:bg-gray-800/30 dark:hover:border-gray-300/30'>
+              <div className='flex items-center justify-between'>
+                <h3 className='text-2xl font-semibold text-white'>
+                  Projects & Experience
+                </h3>
+                <button
+                  onClick={() => setProjectsCollapsed((prev) => !prev)}
+                  aria-label={
+                    projectsCollapsed ? 'Expand projects' : 'Collapse projects'
+                  }
+                  className='cursor-pointer rounded-full border border-white/10 bg-transparent px-2 py-2 text-sm text-white transition-all duration-300 hover:border-white/30 hover:bg-gray-700'
+                >
+                  <ChevronDownIcon
+                    className={`h-5 w-5 transform text-white transition-transform duration-500 ${
+                      projectsCollapsed ? '' : 'rotate-180'
+                    }`}
+                  />
+                </button>
+              </div>
+
+              <div
+                ref={projectsRef}
+                className='overflow-hidden pb-1 transition-all duration-500 ease-in-out'
+                style={{ maxHeight: projectsMaxHeight }}
+              >
+                <p className='mb-6 pt-2 text-gray-300'>
+                  Relevant university projects and work experience I have gained
+                  throughout my time as a medialogy student:
+                </p>
+
+                <div className='flex flex-col gap-6'>
+                  {/* ——— Project 1 ——— */}
+                  <div className='transform rounded-2xl border border-white/20 bg-white/5 p-6 shadow-md backdrop-blur-[2px] transition-all duration-300 ease-in-out dark:border-gray-500/20 dark:bg-gray-800/20 dark:hover:border-gray-300/30'>
+                    <h4 className='mb-1 text-xl font-semibold text-white'>
+                      Master's Thesis
+                    </h4>
+                    <p className='mb-4 text-sm text-gray-400 italic'>
+                      Feb. 2025 – May 2025
+                    </p>
+                    <div className='mb-4 h-48 w-full rounded-lg bg-gray-700'></div>
+                    <p className='text-gray-300'>
+                      Brief description of the project goes here. Lorem ipsum
+                      dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                  </div>
+
+                  {/* ——— Project 2 ——— */}
+                  <div className='transform rounded-2xl border border-white/20 bg-white/5 p-6 shadow-md backdrop-blur-[2px] transition-all duration-300 ease-in-out dark:border-gray-500/20 dark:bg-gray-800/20 dark:hover:border-gray-300/30'>
+                    <h4 className='mb-1 text-xl font-semibold text-white'>
+                      Nykredit - Front-End Developer Internship
+                    </h4>
+                    <p className='font-style: mb-4 text-sm text-gray-400 italic'>
+                      Sep. 2024 – Dec. 2024
+                    </p>
+                    <div className='mb-4 h-48 w-full rounded-lg bg-gray-700'></div>
+                    <p className='text-gray-300'>
+                      During my three-month Front-End Developer Internship as
+                      part of Nykredit's Team X-Factory, I collaborated with
+                      UI/UX designers, back-end engineers and fellow front-end
+                      developers to design and implement user-facing features
+                      for internal Property Finance systems. Leveraging React,
+                      TypeScript and CSS, I applied agile methodologies -
+                      participating in daily stand-ups, code reviews and
+                      iterative testing - to deliver cohesive, accesible
+                      front-end solutions in a corporate environment.
+                    </p>
+                    {/* ——— Main Learnings ——— */}
+                    <div className='mt-4'>
+                      <h5 className='mb-2 text-lg font-semibold text-white'>
+                        Main Learnings
+                      </h5>
+                      <ul className='list-inside list-disc text-gray-300'>
+                        <li>
+                          Enhanced proficiency in React & TypeScript component
+                          architecture
+                        </li>
+                        <li>
+                          Deep understanding of agile workflows and
+                          collaborative code review
+                        </li>
+                        <li>
+                          Best practices for building accessible, responsive UIs
+                          in a corporate setting
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* ——— Project 3 ——— */}
+                  <div className='transform rounded-2xl border border-white/20 bg-white/5 p-6 shadow-md backdrop-blur-[2px] transition-all duration-300 ease-in-out dark:border-gray-500/20 dark:bg-gray-800/20 dark:hover:border-gray-300/30'>
+                    <h4 className='mb-1 text-xl font-semibold text-white'>
+                      Bachelor's Thesis
+                    </h4>
+                    <p className='mb-4 text-sm text-gray-400 italic'>
+                      Feb. 2023 – May 2023
+                    </p>
+                    <div className='mb-4 h-48 w-full rounded-lg bg-gray-700'></div>
+                    <p className='text-gray-300'>
+                      During my Bachelor’s thesis at Aalborg University, I led
+                      the UI/UX design and front-end development of Collipse - a
+                      citizen science smartphone app for large-scale colour
+                      differentiation tests. I prototyped interactive screens in
+                      Figma, implemented responsive interfaces for Android and
+                      conducted iterative usability evaluations to drive
+                      data-informed design improvements.
+                    </p>
+                    {/* ——— Main Learnings ——— */}
+                    <div className='mt-4'>
+                      <h5 className='mb-2 text-lg font-semibold text-white'>
+                        Main Learnings
+                      </h5>
+                      <ul className='list-inside list-disc text-gray-300'>
+                        <li>
+                          Mastered user-centered UI/UX workflows in Figma, from
+                          wireframes to high-fidelity mobile layouts
+                        </li>
+                        <li>
+                          Developed Android front-end features for real-time
+                          colour rendering and state management
+                        </li>
+                        <li>
+                          Applied iterative usability testing and metrics
+                          analysis to refine interactions
+                        </li>
+                        <li>
+                          Integrated citizen science principles to motivate
+                          participation and ensure data validity
+                        </li>
+                        <li>
+                          Deepened understanding of colourimetry and its
+                          practical application in app design
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
