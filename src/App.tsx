@@ -19,6 +19,8 @@ import jiraLogo from './assets/logos/Jira.png';
 import muiLogo from './assets/logos/Material UI.png';
 import storybookLogo from './assets/logos/Storybook.png';
 
+import CollipseImg from './assets/collipse.png';
+
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [skillsCollapsed, setSkillsCollapsed] = useState(false);
@@ -358,17 +360,43 @@ function App() {
                         </li>
                       </ul>
                     </div>
+                    <h5 className='mt-4 mb-2 text-lg font-semibold text-white'>
+                      Testemonial
+                    </h5>
+                    <blockquote className='text-gray-00 mt-2 border-l-4 border-blue-400 pl-4 italic'>
+                      “Rasmus har været i praktik hos Nykredit som
+                      frontend-udvikler i tre måneder, hvor Rasmus primært
+                      arbejdede med React. I løbet af praktikperioden har Rasmus
+                      vist stort engagement, initiativ og en vilje til at lære
+                      og udvikle sig.”
+                      <footer className='mt-2 text-sm font-medium text-gray-400'>
+                        – Emilie Ørtoft Høllede Pedersen, Senior
+                        Frontend-developer
+                      </footer>
+                    </blockquote>
+                    <a
+                      href='/assets/Udtalelse.pdf'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='mt-2 inline-block text-sm text-blue-400 hover:underline'
+                    >
+                      Download Full Testemonial
+                    </a>
                   </div>
 
                   {/* ——— Project 3 ——— */}
                   <div className='transform rounded-2xl border border-white/20 bg-white/5 p-6 shadow-md backdrop-blur-[2px] transition-all duration-300 ease-in-out dark:border-gray-500/20 dark:bg-gray-800/20 dark:hover:border-gray-300/30'>
                     <h4 className='mb-1 text-xl font-semibold text-white'>
-                      Bachelor's Thesis
+                      Collipse - Bachelor's Thesis
                     </h4>
                     <p className='mb-4 text-sm text-gray-400 italic'>
                       Feb. 2023 – May 2023
                     </p>
-                    <div className='mb-4 h-48 w-full rounded-lg bg-gray-700'></div>
+                    <img
+                      src={CollipseImg}
+                      alt='Screenshots of the Collipse app'
+                      className='mb-4 h-48 w-full rounded-lg object-cover'
+                    />
                     <p className='text-gray-300'>
                       During my Bachelor’s thesis at Aalborg University, I led
                       the UI/UX design and front-end development of Collipse - a
