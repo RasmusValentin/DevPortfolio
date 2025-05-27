@@ -19,6 +19,7 @@ import muiLogo from './assets/logos/Material UI.png';
 import storybookLogo from './assets/logos/Storybook.png';
 
 import CollipseImg from './assets/collipse.png';
+import MastersImg from './assets/masters.jpg';
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -309,7 +310,11 @@ function App() {
                     <p className='mb-4 text-sm text-gray-400 italic'>
                       Feb. 2025 – May 2025
                     </p>
-                    <div className='mb-4 h-48 w-full rounded-lg bg-gray-700'></div>
+                    <img
+                      src={MastersImg}
+                      alt='Screenshots of the Masters app'
+                      className='mb-4 h-48 w-full rounded-lg object-cover'
+                    />
                     <p className='text-gray-300'>
                       For my Master’s project at Aalborg University, I led the
                       UI/UX design and front-end development of a
