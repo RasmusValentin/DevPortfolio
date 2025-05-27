@@ -155,7 +155,7 @@ function App() {
       <main className='z-10 w-full flex-grow'>
         <div className='mx-auto w-full max-w-[1440px] px-4 py-12'>
           {/* Hero Card */}
-          <div className='relative mx-auto w-full max-w-4xl rounded-3xl border border-white/20 bg-white/10 p-16 shadow-lg transition-all duration-300 ease-in-out hover:border-white/50 dark:border-gray-500/20 dark:bg-gray-800/30 dark:hover:border-gray-300/30'>
+          <div className='relative mx-auto w-full max-w-4xl rounded-3xl border border-white/20 bg-white/10 p-16 shadow-lg transition-all duration-300 ease-in-out hover:border-white/50 dark:border-gray-500/20 dark:bg-gray-800/50 dark:hover:border-gray-300/30 dark:hover:bg-gray-800/90'>
             <div className='flex flex-col md:flex-row md:items-stretch md:justify-between'>
               {/* ─── Left column: Text + CTA ─── */}
               <div className='flex flex-1 flex-col justify-between'>
@@ -215,15 +215,15 @@ function App() {
               Want to know more?
             </h3>
             <p className='mx-auto max-w-2xl text-gray-300'>
-              Please have a look at the following sections to learn more about
-              my skills and experience:
+              Have a look at the following sections to learn more about my
+              skills and experience:
             </p>
           </div>
 
           {/* Skills and Projects */}
           <div className='flex flex-col items-center gap-8'>
             {/* Skills Card */}
-            <div className='w-full max-w-4xl transform rounded-3xl border border-white/20 bg-white/10 p-12 text-left shadow-lg transition-all duration-300 ease-in-out hover:scale-102 hover:border-white/30 dark:border-gray-500/20 dark:bg-gray-800/30 dark:hover:border-gray-300/30'>
+            <div className='w-full max-w-4xl transform rounded-3xl border border-white/20 bg-white/10 p-12 text-left shadow-lg transition-all duration-300 ease-in-out hover:scale-102 hover:border-white/30 dark:border-gray-500/20 dark:bg-gray-800/50 dark:hover:border-gray-300/30 dark:hover:bg-gray-800/90'>
               <div className='flex items-center justify-between'>
                 <h3 className='text-2xl font-semibold text-white'>Skills</h3>
                 <button
@@ -270,7 +270,7 @@ function App() {
             </div>
 
             {/* Projects & Experience Card */}
-            <div className='w-full max-w-4xl transform rounded-3xl border border-white/20 bg-white/10 p-12 text-left shadow-lg transition-all duration-300 ease-in-out hover:scale-102 hover:border-white/30 dark:border-gray-500/20 dark:bg-gray-800/30 dark:hover:border-gray-300/30'>
+            <div className='w-full max-w-4xl transform rounded-3xl border border-white/20 bg-white/10 p-12 text-left shadow-lg transition-all duration-300 ease-in-out hover:scale-102 hover:border-white/30 dark:border-gray-500/20 dark:bg-gray-800/50 dark:hover:border-gray-300/30 dark:hover:bg-gray-800/90'>
               <div className='flex items-center justify-between'>
                 <h3 className='text-2xl font-semibold text-white'>
                   Projects & Experience
@@ -302,22 +302,56 @@ function App() {
 
                 <div className='flex flex-col gap-6'>
                   {/* ——— Project 1 ——— */}
-                  <div className='transform rounded-2xl border border-white/20 bg-white/5 p-6 shadow-md transition-all duration-300 ease-in-out dark:border-gray-500/20 dark:bg-gray-800/20 dark:hover:border-gray-300/30'>
+                  <div className='transform rounded-2xl border border-white/20 bg-white/5 p-6 shadow-md transition-all duration-300 ease-in-out dark:border-gray-500/20 dark:bg-gray-800/20 dark:hover:border-gray-300/30 dark:hover:bg-gray-700/20'>
                     <h4 className='mb-1 text-xl font-semibold text-white'>
-                      Master's Thesis
+                      AI Document Verification - Master's Thesis
                     </h4>
                     <p className='mb-4 text-sm text-gray-400 italic'>
                       Feb. 2025 – May 2025
                     </p>
                     <div className='mb-4 h-48 w-full rounded-lg bg-gray-700'></div>
                     <p className='text-gray-300'>
-                      Brief description of the project goes here. Lorem ipsum
-                      dolor sit amet, consectetur adipiscing elit.
+                      For my Master’s project at Aalborg University, I led the
+                      UI/UX design and front-end development of a
+                      proof-of-concept system in collaboration with a major
+                      Danish financial institution. Built in React, the
+                      interface prioritizes explainability and user trust by
+                      visualizing OCR-extracted data (Tesseract + custom
+                      preprocessing) alongside similarity search results powered
+                      by FAISS, enabling financial analysts to review, validate,
+                      and override AI-driven document verifications with full
+                      transparency and auditability.
                     </p>
+                    {/* ——— Main Learnings ——— */}
+                    <div className='mt-4'>
+                      <h5 className='mb-2 text-lg font-semibold text-white'>
+                        Main Learnings
+                      </h5>
+                      <ul className='list-inside list-disc text-gray-300'>
+                        <li>
+                          Built React components to surface AI confidence scores
+                        </li>
+                        <li>
+                          Integrated Tesseract OCR and FAISS search in the front
+                          end
+                        </li>
+                        <li>
+                          Applied human-centered AI principles to UI/UX design
+                        </li>
+                        <li>
+                          Ran user tests and heuristic reviews to improve
+                          usability
+                        </li>
+                        <li>
+                          Balanced automation with human oversight for
+                          compliance
+                        </li>
+                      </ul>
+                    </div>
                   </div>
 
                   {/* ——— Project 2 ——— */}
-                  <div className='transform rounded-2xl border border-white/20 bg-white/5 p-6 shadow-md transition-all duration-300 ease-in-out dark:border-gray-500/20 dark:bg-gray-800/20 dark:hover:border-gray-300/30'>
+                  <div className='transform rounded-2xl border border-white/20 bg-white/5 p-6 shadow-md transition-all duration-300 ease-in-out dark:border-gray-500/20 dark:bg-gray-800/20 dark:hover:border-gray-300/30 dark:hover:bg-gray-700/20'>
                     <h4 className='mb-1 text-xl font-semibold text-white'>
                       Nykredit - Front-End Developer Internship
                     </h4>
@@ -381,7 +415,7 @@ function App() {
                   </div>
 
                   {/* ——— Project 3 ——— */}
-                  <div className='transform rounded-2xl border border-white/20 bg-white/5 p-6 shadow-md transition-all duration-300 ease-in-out dark:border-gray-500/20 dark:bg-gray-800/20 dark:hover:border-gray-300/30'>
+                  <div className='transform rounded-2xl border border-white/20 bg-white/5 p-6 shadow-md transition-all duration-300 ease-in-out dark:border-gray-500/20 dark:bg-gray-800/20 dark:hover:border-gray-300/30 dark:hover:bg-gray-700/20'>
                     <h4 className='mb-1 text-xl font-semibold text-white'>
                       Collipse - Bachelor's Thesis
                     </h4>
