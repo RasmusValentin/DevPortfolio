@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { BackgroundBeams } from './components/ui/background-beams';
+import { useEffect, useRef, useState } from 'react';
 import profilePic from './assets/valle.png';
 import arrowIcon from './assets/arrow.png';
 import { ChevronDownIcon, XMarkIcon } from '@heroicons/react/24/solid';
@@ -99,13 +98,10 @@ function App() {
   };
 
   return (
-    <div className='relative flex min-h-screen flex-col text-white'>
-      {/* Background */}
-      <BackgroundBeams className='fixed inset-0 bg-gradient-to-b from-gray-900 to-gray-800 bg-fixed' />
-
+    <div className='relative flex min-h-screen flex-col bg-gradient-to-b from-gray-900 to-gray-800 bg-fixed text-white'>
       {/* Full-page overlay: blur + darken */}
       <div
-        className={`\ fixed inset-0 z-50 transition-all duration-300 ${isModalOpen ? 'pointer-events-auto bg-black/50 opacity-100 backdrop-blur-sm' : 'pointer-events-none opacity-0'}`}
+        className={`\ fixed inset-0 z-50 transition-all duration-300 ${isModalOpen ? 'pointer-events-auto bg-black/50 opacity-100' : 'pointer-events-none opacity-0'}`}
         onClick={() => setIsModalOpen(false)}
       />
 
@@ -115,7 +111,7 @@ function App() {
         onClick={() => setIsModalOpen(false)}
       >
         <div
-          className={`relative w-full max-w-md transform rounded-3xl border border-white/20 bg-white/10 p-8 shadow-lg backdrop-blur-[24px] transition-all duration-300 ease-in-out hover:border-white/50 dark:border-gray-500/20 dark:bg-gray-800/30 dark:hover:border-gray-300/30 ${
+          className={`relative w-full max-w-md transform rounded-3xl border border-white/20 bg-white p-8 shadow-lg transition-all duration-300 ease-in-out hover:border-white/50 dark:border-gray-500/20 dark:bg-gray-800 dark:hover:border-gray-300/30 ${
             isModalOpen ? 'scale-100 opacity-100' : 'scale-75 opacity-0'
           }`}
           onClick={(e) => e.stopPropagation()}
@@ -159,7 +155,7 @@ function App() {
       <main className='z-10 w-full flex-grow'>
         <div className='mx-auto w-full max-w-[1440px] px-4 py-12'>
           {/* Hero Card */}
-          <div className='relative mx-auto w-full max-w-4xl rounded-3xl border border-white/20 bg-white/10 p-16 shadow-lg backdrop-blur-[4px] transition-all duration-300 ease-in-out hover:border-white/50 dark:border-gray-500/20 dark:bg-gray-800/30 dark:hover:border-gray-300/30'>
+          <div className='relative mx-auto w-full max-w-4xl rounded-3xl border border-white/20 bg-white/10 p-16 shadow-lg transition-all duration-300 ease-in-out hover:border-white/50 dark:border-gray-500/20 dark:bg-gray-800/50 dark:hover:border-gray-300/30 dark:hover:bg-gray-800/90'>
             <div className='flex flex-col md:flex-row md:items-stretch md:justify-between'>
               {/* ─── Left column: Text + CTA ─── */}
               <div className='flex flex-1 flex-col justify-between'>
@@ -194,7 +190,7 @@ function App() {
 
               {/* ─── Right column: Image ─── */}
               <div className='mt-8 flex justify-center md:mt-0 md:ml-20 md:justify-end'>
-                <div className='group relative h-72 w-72 overflow-hidden rounded-3xl border border-white/20 bg-white/3 shadow-lg backdrop-blur-[4px] transition-all duration-300 ease-in-out hover:border-white/30 md:h-full dark:border-gray-500/20 dark:hover:border-gray-300/30'>
+                <div className='group relative h-72 w-72 overflow-hidden rounded-3xl border border-white/20 bg-white/3 shadow-lg transition-all duration-300 ease-in-out hover:border-white/30 md:h-full dark:border-gray-500/20 dark:hover:border-gray-300/30'>
                   <img
                     src={profilePic}
                     alt='Rasmus Valentin'
@@ -227,7 +223,7 @@ function App() {
           {/* Skills and Projects */}
           <div className='flex flex-col items-center gap-8'>
             {/* Skills Card */}
-            <div className='w-full max-w-4xl transform rounded-3xl border border-white/20 bg-white/10 p-12 text-left shadow-lg backdrop-blur-[4px] transition-all duration-300 ease-in-out hover:scale-102 hover:border-white/30 dark:border-gray-500/20 dark:bg-gray-800/30 dark:hover:border-gray-300/30'>
+            <div className='w-full max-w-4xl transform rounded-3xl border border-white/20 bg-white/10 p-12 text-left shadow-lg transition-all duration-300 ease-in-out hover:scale-102 hover:border-white/30 dark:border-gray-500/20 dark:bg-gray-800/50 dark:hover:border-gray-300/30 dark:hover:bg-gray-800/90'>
               <div className='flex items-center justify-between'>
                 <h3 className='text-2xl font-semibold text-white'>Skills</h3>
                 <button
@@ -274,7 +270,7 @@ function App() {
             </div>
 
             {/* Projects & Experience Card */}
-            <div className='w-full max-w-4xl transform rounded-3xl border border-white/20 bg-white/10 p-12 text-left shadow-lg backdrop-blur-[4px] transition-all duration-300 ease-in-out hover:scale-102 hover:border-white/30 dark:border-gray-500/20 dark:bg-gray-800/30 dark:hover:border-gray-300/30'>
+            <div className='w-full max-w-4xl transform rounded-3xl border border-white/20 bg-white/10 p-12 text-left shadow-lg transition-all duration-300 ease-in-out hover:scale-102 hover:border-white/30 dark:border-gray-500/20 dark:bg-gray-800/50 dark:hover:border-gray-300/30 dark:hover:bg-gray-800/90'>
               <div className='flex items-center justify-between'>
                 <h3 className='text-2xl font-semibold text-white'>
                   Projects & Experience
@@ -306,7 +302,7 @@ function App() {
 
                 <div className='flex flex-col gap-6'>
                   {/* ——— Project 1 ——— */}
-                  <div className='transform rounded-2xl border border-white/20 bg-white/5 p-6 shadow-md backdrop-blur-[2px] transition-all duration-300 ease-in-out dark:border-gray-500/20 dark:bg-gray-800/20 dark:hover:border-gray-300/30'>
+                  <div className='transform rounded-2xl border border-white/20 bg-white/5 p-6 shadow-md transition-all duration-300 ease-in-out dark:border-gray-500/20 dark:bg-gray-800/20 dark:hover:border-gray-300/30 dark:hover:bg-gray-700/20'>
                     <h4 className='mb-1 text-xl font-semibold text-white'>
                       AI Document Verification - Master's Thesis
                     </h4>
@@ -355,7 +351,7 @@ function App() {
                   </div>
 
                   {/* ——— Project 2 ——— */}
-                  <div className='transform rounded-2xl border border-white/20 bg-white/5 p-6 shadow-md backdrop-blur-[2px] transition-all duration-300 ease-in-out dark:border-gray-500/20 dark:bg-gray-800/20 dark:hover:border-gray-300/30'>
+                  <div className='transform rounded-2xl border border-white/20 bg-white/5 p-6 shadow-md transition-all duration-300 ease-in-out dark:border-gray-500/20 dark:bg-gray-800/20 dark:hover:border-gray-300/30 dark:hover:bg-gray-700/20'>
                     <h4 className='mb-1 text-xl font-semibold text-white'>
                       Nykredit - Front-End Developer Internship
                     </h4>
@@ -419,7 +415,7 @@ function App() {
                   </div>
 
                   {/* ——— Project 3 ——— */}
-                  <div className='transform rounded-2xl border border-white/20 bg-white/5 p-6 shadow-md backdrop-blur-[2px] transition-all duration-300 ease-in-out dark:border-gray-500/20 dark:bg-gray-800/20 dark:hover:border-gray-300/30'>
+                  <div className='transform rounded-2xl border border-white/20 bg-white/5 p-6 shadow-md transition-all duration-300 ease-in-out dark:border-gray-500/20 dark:bg-gray-800/20 dark:hover:border-gray-300/30 dark:hover:bg-gray-700/20'>
                     <h4 className='mb-1 text-xl font-semibold text-white'>
                       Collipse - Bachelor's Thesis
                     </h4>
