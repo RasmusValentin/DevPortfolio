@@ -13,7 +13,7 @@ import gitLogo from './assets/logos/Git.png';
 import viteLogo from './assets/logos/Vite.js.png';
 import nodeLogo from './assets/logos/Node.js.png';
 import figmaLogo from './assets/logos/Figma.png';
-import bitbucketLogo from './assets/logos/bitBucket.png';
+import bitbucketLogo from './assets/logos/BitBucket.png';
 import jiraLogo from './assets/logos/Jira.png';
 import muiLogo from './assets/logos/Material UI.png';
 import storybookLogo from './assets/logos/Storybook.png';
