@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import profilePic from './assets/valle.png';
 import arrowIcon from './assets/arrow.png';
 import { ChevronDownIcon, XMarkIcon } from '@heroicons/react/24/solid';
