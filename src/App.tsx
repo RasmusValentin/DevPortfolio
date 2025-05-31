@@ -20,6 +20,7 @@ import storybookLogo from './assets/logos/Storybook.png';
 
 import CollipseImg from './assets/collipse.png';
 import MastersImg from './assets/masters.jpg';
+import NykreditImg from './assets/nykredit.png';
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -363,7 +364,11 @@ function App() {
                     <p className='font-style: mb-4 text-sm text-gray-400 italic'>
                       Sep. 2024 – Dec. 2024
                     </p>
-                    <div className='mb-4 h-48 w-full rounded-lg bg-gray-700'></div>
+                    <img
+                      src={NykreditImg}
+                      alt='Screenshots of the Masters app'
+                      className='mb-4 h-48 w-full rounded-lg object-cover'
+                    />
                     <p className='text-gray-300'>
                       During my three-month Front-End Developer Internship as
                       part of Nykredit's Team X-Factory, I collaborated with
