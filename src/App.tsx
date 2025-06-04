@@ -354,6 +354,27 @@ function App() {
                         </li>
                       </ul>
                     </div>
+                    <h5 className='mt-4 mb-2 text-lg font-semibold text-white'>
+                      Testemonial
+                    </h5>
+                    <blockquote className='text-gray-00 mt-2 border-l-4 border-blue-400 pl-4 italic'>
+                      "Kandidatsamarbejdet mellem Rasmus, Mads og Jonas og
+                      Totalkredit har været konstruktivt og givende. De har
+                      været godt forberedte til vores statusmøder og har
+                      tydeligt demonstreret og forklaret deres vision, proces og
+                      produkt. De har også lyttet til vores ønsker og behov.
+                      <br />
+                      Deres engagement og professionalisme har været tydeligt
+                      gennem hele samarbejdet, og vi har set stor værdi i at
+                      være en del af deres kandidatafhandling. <br />
+                      De har leveret et produkt med potentiale til at reducere
+                      vores behandlingstid og give vores samarbejdende
+                      pengeinstitutter en hurtigere proces ved at automatisere
+                      en i dag manuel proces."
+                      <footer className='mt-2 text-sm font-medium text-gray-400'>
+                        - Casper Stenberg Gotschalk, Project Consultant
+                      </footer>
+                    </blockquote>
                   </div>
 
                   {/* ——— Project 2 ——— */}
